@@ -2,27 +2,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+int main(void) 
+{
+	int i;
 	
-	int i, average, grade[5];
-	int sum = 0;
+	int grade[5];
+	int score[5];
+	int a[5] = { 1, 2, 3, 4, 5 };
+	int b[5] = { 1, 2, 3, 7, 5 };
 
-	srand(time(NULL));
-
-	for (int i = 0; i < 5; i++)
+	int flag_same = 1;
+	
+	for (i = 0; i < 5; i++)
 	{
-		printf("put grade %i: ", i);
-		scanf_s("%d", &grade[i]);
-		sum += grade[i];
+		grade[i] = rand() % 100;
+		score[i] = grade[i];
+		printf("grade[%d] = %d, score[%d] = %d\n", i, grade[i], i, score[i]);
 	}
 
-	for (int i = 0; i < 5; i++)
+	for (i = 0; i < 5; i++)
 	{
-		printf("grade 1: %d\n", grade[i]);
+		if (a[i] != b[i])
+			printf("different value: index %d\n", i);
+		else
+			printf("same value : index %d\n", i);
 	}
-
-	printf("average: %d\n", sum / 5);
 
 	return 0;
-
 }
