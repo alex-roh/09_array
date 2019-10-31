@@ -2,31 +2,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void square_array(int a[], int size);
+void print_array(int a[], int size);
+
 int main(void) 
 {
-	int i;
-	
-	int grade[5];
-	int score[5];
-	int a[5] = { 1, 2, 3, 4, 5 };
-	int b[5] = { 1, 2, 3, 7, 5 };
 
-	int flag_same = 1;
-	
-	for (i = 0; i < 5; i++)
-	{
-		grade[i] = rand() % 100;
-		score[i] = grade[i];
-		printf("grade[%d] = %d, score[%d] = %d\n", i, grade[i], i, score[i]);
-	}
+	int list[5] = { 1, 2, 3, 4 };
 
-	for (i = 0; i < 5; i++)
-	{
-		if (a[i] != b[i])
-			printf("different value: index %d\n", i);
-		else
-			printf("same value : index %d\n", i);
-	}
+	print_array(list, 4);
+	square_array(list, 4);
+	print_array(list, 4);
 
 	return 0;
+}
+
+void square_array(int a[], int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+	{
+		a[i] = a[i] * a[i];
+	}
+}
+
+void print_array(int a[], int size)
+{
+	int i = 0;
+	for (int i = 0; i < size; i++)
+	{
+		printf("%d ", a[i]);
+	}
+	printf("\n");
 }
