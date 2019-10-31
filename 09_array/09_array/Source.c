@@ -2,36 +2,63 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void square_array(int a[], int size);
-void print_array(int a[], int size);
+#define ROWS 3
+#define COLS 3
 
-int main(void) 
+void matrix_increment(int A[][COLS], int B[][COLS], int C[][COLS]);
+void print_matrix(int C[][COLS]);
+
+int main(void)
 {
+	int A[ROWS][COLS] = {
+		{2, 3, 0},
+		{8, 9, 1},
+		{7, 0, 5}
+	};
 
-	int list[5] = { 1, 2, 3, 4 };
+	int B[ROWS][COLS] = {
+		{1, 0, 0},
+		{0, 1, 0},
+		{0, 0, 1}
+	};
 
-	print_array(list, 4);
-	square_array(list, 4);
-	print_array(list, 4);
+	int C[ROWS][COLS] = {
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0}
+	};
+
+	matrix_increment(A, B, C);
+	print_matrix(C);
 
 	return 0;
 }
 
-void square_array(int a[], int size)
+void matrix_increment(int A[][COLS], int B[][COLS], int C[][COLS])
 {
-	int i;
-	for (i = 0; i < size; i++)
+	int i, j;
+	for (i = 0; i < ROWS; i++)
 	{
-		a[i] = a[i] * a[i];
+		for (j = 0; j < COLS; j++)
+		{
+			C[i][j] = A[i][j] + B[i][j];
+		}
+	}
+
+}
+
+void print_matrix(int C[][COLS])
+{
+	int i, j;
+
+	for (i = 0; i < ROWS; i++)
+	{
+		for (j = 0; j < COLS; j++)
+		{
+			printf("%d ", C[i][j]);
+		}
+		printf("\n");
 	}
 }
 
-void print_array(int a[], int size)
-{
-	int i = 0;
-	for (int i = 0; i < size; i++)
-	{
-		printf("%d ", a[i]);
-	}
-	printf("\n");
-}
+
