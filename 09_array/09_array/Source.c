@@ -1,19 +1,27 @@
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void) {
 	
-	int i;
-	int grade[5];
+	int i, average, grade[5];
+	int sum = 0;
 
-	grade[0] = 10;
-	grade[1] = 20;
-	grade[2] = 30;
-	grade[3] = 40;
-	grade[4] = 50;
+	srand(time(NULL));
 
-	for (i = 0; i < 5; i++)
-		printf("data[%d] = %d\n", i, grade[i]);
+	for (int i = 0; i < 5; i++)
+	{
+		printf("put grade %i: ", i);
+		scanf_s("%d", &grade[i]);
+		sum += grade[i];
+	}
+
+	for (int i = 0; i < 5; i++)
+	{
+		printf("grade 1: %d\n", grade[i]);
+	}
+
+	printf("average: %d\n", sum / 5);
 
 	return 0;
 
